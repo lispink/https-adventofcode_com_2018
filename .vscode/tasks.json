@@ -2,24 +2,37 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build1",
+            "label": "Build All",
+            "dependsOn": [
+                "Build Day1",
+                "Build Day2"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build Day1",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
                 "${workspaceFolder}/Day1/Day1.csproj"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": "build"
         },
         {
-            "label": "build2",
+            "label": "Build Day2",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
                 "${workspaceFolder}/Day2/Day2.csproj"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": "build"
         }
     ]
 }
